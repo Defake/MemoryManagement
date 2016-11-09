@@ -14,31 +14,31 @@ namespace MemoryManagement.Test
 			{
 				LongOperation();
 			}
-			var time1 = (int)(timer.TimeInMiliseconds); 
+			var time1 = (int)(timer.ElapsedMilliseconds); 
 
 			using (timer.Start())
 			{
 				LongOperation();
 			}
-			var time2 = (int)(timer.TimeInMiliseconds);
+			var time2 = (int)(timer.ElapsedMilliseconds);
 
 			using (timer.Start())
 			{
 				LongOperation();
 			}
-			var time3 = (int)(timer.TimeInMiliseconds);
+			var time3 = (int)(timer.ElapsedMilliseconds);
 
 			using (timer.Continue())
 			{
 				LongOperation();
 			}
-			var timeCont1 = (int)(timer.TimeInMiliseconds);
+			var timeCont1 = (int)(timer.ElapsedMilliseconds);
 
 			using (timer.Continue())
 			{
 				LongOperation();
 			}
-			var timeCont2 = (int)(timer.TimeInMiliseconds);
+			var timeCont2 = (int)(timer.ElapsedMilliseconds);
 
 			// Mathematical error is 100 last symbols
 			Assert.IsTrue(Math.Abs(time1 - time2) < 150);
