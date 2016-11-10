@@ -10,6 +10,7 @@ namespace MemoryManagement.Test
 		public void TestMethod1() 
 		{
 			var timer = new Timer();
+			
 			using (timer.Start())
 			{
 				LongOperation();
@@ -33,13 +34,13 @@ namespace MemoryManagement.Test
 				LongOperation();
 			}
 			var timeCont1 = (int)(timer.ElapsedMilliseconds);
-
+			
 			using (timer.Continue())
 			{
 				LongOperation();
 			}
 			var timeCont2 = (int)(timer.ElapsedMilliseconds);
-
+			
 			// Mathematical error is 100 last symbols
 			Assert.IsTrue(Math.Abs(time1 - time2) < 150);
 			Assert.IsTrue(Math.Abs(time2 - time3) < 150);

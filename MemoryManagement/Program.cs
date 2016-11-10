@@ -13,11 +13,27 @@ namespace MemoryManagement
 		{
 			//Tes();
 
-			var bitmap = (Bitmap)Bitmap.FromFile("...");
-			using (var bitmapEditor = new BitmapEditor(bitmap))
+			var bitmap = (Bitmap)Image.FromFile("1000x1000.bmp");
+			var timer = new Timer();
+
+			using (timer.Start())
 			{
-				bitmapEditor.SetPixel(0, 1, 255, 255, 255);
+				for (int x = 0; x < 1000; x++)
+					for (int y = 0; y < 1000; y++)
+						bitmap.SetPixel(x, y, Color.BurlyWood);
 			}
+			Console.WriteLine(timer.ElapsedMilliseconds); //986
+
+			using (timer.Start())
+			{
+				using (var bitmapEditor = new BitmapEditor(bitmap))
+				{
+					for (int x = 0; x < 1000; x++)
+						for (int y = 0; y < 1000; y++)
+							bitmapEditor.SetPixel(x, y, (byte) (255 - x/4), (byte) (y/4), (byte) (x/8 + y/8));
+				}
+			}
+			Console.WriteLine(timer.ElapsedMilliseconds); //49
 
 			Console.ReadKey();
 		}

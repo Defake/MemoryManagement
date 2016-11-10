@@ -9,7 +9,6 @@ namespace MemoryManagement
 {
 	public class Timer : Stopwatch, IDisposable
 	{
-		//public long TimeInMiliseconds { get; private set; } = 0;
 
 		public IDisposable Start()
 		{
@@ -25,7 +24,7 @@ namespace MemoryManagement
 
 		public void Dispose()
 		{
-			Stop();
+			base.Stop();
 		}
 	}
 }
