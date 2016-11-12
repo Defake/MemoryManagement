@@ -16,7 +16,7 @@ namespace MemoryManagement
 			var bitmap = (Bitmap)Image.FromFile("1000x1000.bmp");
 			var timer = new Timer();
 
-			using (timer.Start())
+			using (timer.StartTimer())
 			{
 				for (int x = 0; x < 1000; x++)
 					for (int y = 0; y < 1000; y++)
@@ -24,7 +24,7 @@ namespace MemoryManagement
 			}
 			Console.WriteLine(timer.ElapsedMilliseconds); //986
 
-			using (timer.Start())
+			using (timer.StartTimer())
 			{
 				using (var bitmapEditor = new BitmapEditor(bitmap))
 				{
@@ -41,14 +41,14 @@ namespace MemoryManagement
 		//public static void Tes()
 		//{
 		//	var timer = new Timer();
-		//	using (timer.Start())
+		//	using (timer.StartTimer())
 		//	{
 		//		LongOperation();
 		//	}
 		//	var time1 = (int)(timer.TimeInMiliseconds); // Mathematical error is two last symbols
 		//	Console.WriteLine(time1);
 
-		//	using (timer.Start())
+		//	using (timer.StartTimer())
 		//	{
 		//		LongOperation();
 		//	}
@@ -56,7 +56,7 @@ namespace MemoryManagement
 			
 		//	Console.WriteLine(time2);
 
-		//	using (timer.Start())
+		//	using (timer.StartTimer())
 		//	{
 		//		LongOperation();
 		//	}

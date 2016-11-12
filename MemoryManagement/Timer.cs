@@ -10,7 +10,7 @@ namespace MemoryManagement
 	public class Timer : Stopwatch, IDisposable
 	{
 
-		public IDisposable Start()
+		public IDisposable StartTimer()
 		{
 			Restart();
 			return this;

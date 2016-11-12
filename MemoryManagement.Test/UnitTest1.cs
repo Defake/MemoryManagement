@@ -11,19 +11,19 @@ namespace MemoryManagement.Test
 		{
 			var timer = new Timer();
 			
-			using (timer.Start())
+			using (timer.StartTimer())
 			{
 				LongOperation();
 			}
 			var time1 = (int)(timer.ElapsedMilliseconds); 
 
-			using (timer.Start())
+			using (timer.StartTimer())
 			{
 				LongOperation();
 			}
 			var time2 = (int)(timer.ElapsedMilliseconds);
 
-			using (timer.Start())
+			using (timer.StartTimer())
 			{
 				LongOperation();
 			}
